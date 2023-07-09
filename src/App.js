@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
+import MahasiswaList from "./components/MahasiswaList";
+import AddMahasiswa from "./components/AddMahasiswa";
+import EditMahasiswa from "./components/EditMahasiswa";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+return (
+<Router>
+<div>
+<div className="container">
+<div className="columns">
+<div className="column is-half is-offset-one-quarter">
+<Routes>
+<Route path="/" element={<MahasiswaList />} />
+<Route path="/add" element={<AddMahasiswa />} />
+<Route path="/edit/:id" element={<EditMahasiswa />} />
+</Routes>
+</div>
+</div>
+</div>
+</div>
+</Router>
+)
 }
-
 export default App;
